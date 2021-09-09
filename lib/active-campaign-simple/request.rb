@@ -39,7 +39,7 @@ module ActiveCampaign
       }
       opts = {
         method: method,
-        url: api_url + path,
+        url: api_url + '/api/3' + path,
         headers: header
       }
       opts.merge!( { payload: payload.to_json }) unless payload.empty?
