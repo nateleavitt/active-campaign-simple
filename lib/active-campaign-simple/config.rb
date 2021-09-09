@@ -31,7 +31,7 @@ module ActiveCampaign
     end
 
     def api_logger
-      api_logger || ActiveCampaign::Logger.new
+      api_logger || ActiveCampaign::ApiLogger.new
     end
   end
 
