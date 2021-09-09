@@ -7,7 +7,7 @@ module ActiveCampaign
     VALID_OPTION_KEYS = [
       :api_url,
       :api_key,
-      :api_logger,
+      # :api_logger,
       :user_agent # allows you to change the User-Agent of the request headers
     ].freeze
 
@@ -31,7 +31,7 @@ module ActiveCampaign
     end
 
     def api_logger
-      api_logger || ActiveCampaign::ApiLogger.new
+      api_logger || ActiveCampaign::Logger.new
     end
   end
 

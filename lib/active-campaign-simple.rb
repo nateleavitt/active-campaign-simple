@@ -1,6 +1,6 @@
 require 'active-campaign-simple/client'
 require 'active-campaign-simple/config'
-require 'active-campaign-simple/api_logger'
+require 'active-campaign-simple/logger'
 
 module ActiveCampaign
   extend Config

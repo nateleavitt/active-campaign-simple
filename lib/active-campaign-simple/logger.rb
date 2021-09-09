@@ -1,5 +1,5 @@
 module ActiveCampaign
-  class ApiLogger
+  class Logger
 
     def info(msg); $stdout.puts msg end
 
