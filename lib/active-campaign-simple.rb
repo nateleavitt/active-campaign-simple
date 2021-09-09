@@ -15,7 +15,7 @@ module ActiveCampaign
     # Delegate to ActiveCampaign::Client
     def method_missing(method, *args, **kwargs)
       return super unless new.respond_to?(method)
-      new.send(method, *args, **kwargs, &block)
+      new.send(method, *args, **kwargs)
     end
 
     def respond_to?(method, include_private = false)
