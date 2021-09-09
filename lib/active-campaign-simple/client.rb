@@ -3,7 +3,7 @@ require 'active-campaign-simple/request'
 
 module ActiveCampaign
 
-  class Connection
+  class Client
     include Request
 
     attr_accessor :retry_count
