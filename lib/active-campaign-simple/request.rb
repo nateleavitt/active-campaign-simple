@@ -3,40 +3,39 @@ require 'rest-client'
 module ActiveCampaign
   module Request
     # Perform an GET request
-    def get(path, query: {})
-      request(:get, path, token, query )
+    def get(path)
+      request(:get, path)
     end
 
     # Perform an HTTP POST request
-    def post(path, query: {}, payload: {})
-      request(:post, path, query, payload)
+    def post(path, payload: {})
+      request(:post, path, payload)
     end
 
     # Perform an HTTP PUT request
-    def put(path, query: {}, payload: {})
-      request(:put, path, query, payload)
+    def put(path, payload: {})
+      request(:put, path, payload)
     end
 
     # Perform an HTTP PATCH request
-    def patch(path, query: {}, payload: {})
-      request(:patch, path, query, payload)
+    def patch(path, payload: {})
+      request(:patch, path, payload)
     end
 
     # Perform an HTTP DELETE request
-    def delete(path, query: {})
-      request(:delete, path, query)
+    def delete(path)
+      request(:delete, path)
     end
 
     private
 
     # Perform request
-    def request(method, path, query={}, payload={})
+    def request(method, path, payload={})
       path = "/#{path}" unless path.start_with?('/')
       header = {
         'Api-Token': api_key,
         content_type: :json,
         accept: :json,
-        params: query
       }
       opts = {
         method: method,
