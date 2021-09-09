@@ -3,7 +3,7 @@ Simple Ruby REST wrapper for the Active Campaign API
 
 
 ## <a name="info">Info</a>
-This is a very simple wrapper around the REST ActiveCampaign API. You will still need to provide the path and the payload for each request. Eventually I will grow this out to be more convenient. Right now this just provides some conveniences and an easy way to configure the API and not much more... hence the name active-campaign-simple :)
+This is a very simple wrapper around the REST ActiveCampaign API. You will still need to provide the path and the payload for each request. Eventually I will grow this out to be more convenient, if needed. Right now, this just provides some conveniences and an easy way to configure the API and not much more... hence the name active-campaign-simple :)
 
 Use the public API as a guide for paths (urls) and payload info: https://developers.activecampaign.com/
 
@@ -31,7 +31,7 @@ end
 ActiveCampaign.get('/contacts')
 
 # Get a contact
-ActiveCampaign.get('/contacts' + id)
+ActiveCampaign.get('/contacts/' + id)
 
 # Create a new contact
 # https://developers.activecampaign.com/reference#create-a-contact-new
@@ -67,10 +67,10 @@ payload = {
     },
   }
 }
-ActiveCampaign.post('/contacts' + id, payload: payload)
+ActiveCampaign.post('/contacts/' + id, payload: payload)
 
 # Delete a contact
-ActiveCampaign.delete('/contacts' + id)
+ActiveCampaign.delete('/contacts/' + id)
 ```
 
 ## <a name="contributing">Contributing</a>
