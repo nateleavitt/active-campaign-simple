@@ -7,7 +7,7 @@ module ActiveCampaign
     VALID_OPTION_KEYS = [
       :api_url,
       :api_key,
-      :logger,
+      :api_logger,
       :user_agent # allows you to change the User-Agent of the request headers
     ].freeze
 
@@ -30,8 +30,8 @@ module ActiveCampaign
       @user_agent ||= "active-campaign-simple-#{VERSION} (RubyGem)"
     end
 
-    def logger
-      logger || ActiveCampaign::Logger.new
+    def api_logger
+      api_logger || ActiveCampaign::Logger.new
     end
   end
 
