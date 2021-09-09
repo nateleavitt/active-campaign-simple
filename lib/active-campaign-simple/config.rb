@@ -1,4 +1,4 @@
-require 'active_campaign/version'
+require 'active-campaign-simple/version'
 
 module ActiveCampaign
 

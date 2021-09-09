@@ -1,10 +1,6 @@
-require 'active_campaign/client'
-require 'active_campaign/config'
-require 'active_campaign/logger'
-
-require "zeitwerk"
-loader = Zeitwerk::Loader.for_gem
-loader.setup # ready!
+require 'active-campaign-simple/client'
+require 'active-campaign-simple/config'
+require 'active-campaign-simple/logger'
 
 module ActiveCampaign
   extend Config

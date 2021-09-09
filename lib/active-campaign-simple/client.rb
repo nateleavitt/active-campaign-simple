@@ -1,5 +1,5 @@
-require 'active_campaign/config'
-require 'active_campaign/request'
+require 'active-campaign-simple/config'
+require 'active-campaign-simple/request'
 
 module ActiveCampaign
 
