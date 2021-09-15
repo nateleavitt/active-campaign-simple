@@ -1,4 +1,5 @@
 require 'rest-client'
+require 'active-campaign-simple/api_error'
 
 module ActiveCampaign
   module Request
@@ -46,7 +47,7 @@ module ActiveCampaign
       resp = RestClient::Request.execute(opts)
     rescue RestClient::ExceptionWithResponse => err
       # log error?
-      api_logger.error(err)
+      raise APIError, err
     else
       return JSON.parse(resp.body) if resp.body # Some calls respond w nothing
     end
