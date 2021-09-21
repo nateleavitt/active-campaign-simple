@@ -39,7 +39,7 @@ module ActiveCampaign
     # Perform request
     def request(method, path, payload={}, query={})
       path = "/#{path}" unless path.start_with?('/')
-      path += "?#{URI.encode_www_form(query)}" unless query.empty?
+      path += "?#{URI::encode_www_form(query)}" unless query.empty?
       header = {
         'Api-Token': api_key,
         content_type: :json,
