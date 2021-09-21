@@ -6,7 +6,7 @@ module ActiveCampaign
   module Request
     # Perform an GET request
     def get(path, query: {})
-      request(:get, path, query)
+      request(:get, path, nil, query)
     end
 
     # Perform an HTTP POST request
