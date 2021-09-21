@@ -1,8 +1,6 @@
 module ActiveCampaign
   module Event
 
-    private
-
     # Post event
     def post_event(key, actid, event, email, eventdata=nil)
       header = { content_type: 'application/x-www-form-urlencoded' }
