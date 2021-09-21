@@ -60,6 +60,9 @@ ActiveCampaign.put('/contacts/' + id, payload: {
 # Delete a contact
 ActiveCampaign.delete('/contacts/' + id)
 
+# Search for a contact
+ActiveCampaign.get('/contacts', query: { email: 'test@test.com' })
+
 # Event Tracking
 # See: https://developers.activecampaign.com/reference#track-event
 # NOTE - The tracking API is different from all other calls as it changes the arguments a little to simplify.

@@ -5,8 +5,8 @@ require 'active-campaign-simple/event'
 module ActiveCampaign
   module Request
     # Perform an GET request
-    def get(path)
-      request(:get, path)
+    def get(path, query: {})
+      request(:get, path, query)
     end
 
     # Perform an HTTP POST request
@@ -37,12 +37,13 @@ module ActiveCampaign
     private
 
     # Perform request
-    def request(method, path, payload={})
+    def request(method, path, payload={}, query={})
       path = "/#{path}" unless path.start_with?('/')
       header = {
         'Api-Token': api_key,
         content_type: :json,
         accept: :json,
+        params: query
       }
       opts = {
         method: method,
