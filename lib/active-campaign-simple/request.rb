@@ -1,5 +1,6 @@
 require 'rest-client'
 require 'active-campaign-simple/api_error'
+require 'active-campaign-simple/event'
 
 module ActiveCampaign
   module Request
@@ -28,6 +29,11 @@ module ActiveCampaign
       request(:delete, path)
     end
 
+    # used for tracking events
+    def track_event(key, actid, event, email, eventdata=nil)
+      post_event(key, actid, event, email, eventdata)
+    end
+
     private
 
     # Perform request
@@ -46,10 +52,10 @@ module ActiveCampaign
       opts.merge!( { payload: payload.to_json }) unless payload.empty?
       resp = RestClient::Request.execute(opts)
     rescue RestClient::ExceptionWithResponse => err
-      # log error?
       raise APIError, err
     else
       return JSON.parse(resp.body) if resp.body # Some calls respond w nothing
     end
+
   end
 end
