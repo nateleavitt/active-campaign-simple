@@ -33,44 +33,40 @@ ActiveCampaign.get('/contacts')
 # Get a contact
 ActiveCampaign.get('/contacts/' + id)
 
-# Create a new contact
+# Create (post) a new contact
 # https://developers.activecampaign.com/reference#create-a-contact-new
-payload = {
+ActiveCampaign.post('/contacts', payload: {
   contact: {
     email: 'nate@test.com',
     firstName: 'Nate',
     lastName: 'Test',
     phone: '1231231234'
   },
-  fieldValues: {
+  fieldValues: [
     {
       field: '1',
       value: 'The Value for First Field'
-    },
-    {
-      field: '6',
-      value: '2008-01-20'
     }
-  }
-}
-ActiveCampaign.post('/contacts', payload: payload)
+  ]
+})
 
-# Update a contact
-payload = {
+# Update (put) a contact
+ActiveCampaign.put('/contacts/' + id, payload: {
   contact: {
-    email: 'nate@test.com',
-  },
-  fieldValues: {
-    {
-      field: '1',
-      value: 'The Value for First Field'
-    },
+    email: 'nate@test.com'
   }
-}
-ActiveCampaign.post('/contacts/' + id, payload: payload)
+})
 
 # Delete a contact
 ActiveCampaign.delete('/contacts/' + id)
+
+# Event Tracking
+# See: https://developers.activecampaign.com/reference#track-event
+# NOTE - The tracking API is different from all other calls as it changes the arguments a little to simplify.
+ActiveCampaign.track_event('event-key', 'actid', 'event-name', 'email')
+
+# or with optional eventdata
+ActiveCampaign.track_event('event-key', 'actid', 'event-name', 'email', 'eventdata')
 ```
 
 ## <a name="contributing">Contributing</a>
