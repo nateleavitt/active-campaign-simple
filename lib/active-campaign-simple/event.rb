@@ -14,7 +14,8 @@ module ActiveCampaign
         opts = {
           url: "https://trackcmp.net/event",
           headers: header,
-          form: form
+          form: form,
+          method: 'post'
         }
 
         resp = RestClient::Request.execute(opts)
