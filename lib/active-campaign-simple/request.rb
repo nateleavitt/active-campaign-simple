@@ -31,8 +31,7 @@ module ActiveCampaign
 
     # used for tracking events
     def track_event(key, actid, event, email, eventdata=nil)
-      include Event
-      post_event(key, actid, event, email, eventdata)
+      Event.post_event(key, actid, event, email, eventdata)
     end
 
     private
