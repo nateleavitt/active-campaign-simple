@@ -1,7 +1,9 @@
+require 'active-campaign-simple/exceptions'
+
 class ExceptionHandler
 
   ERRORS = {
-    404 => NotFoundError
+    404 => ActiveCampaign::NotFoundError
   }
 
   def initialize(error)
@@ -15,13 +17,4 @@ class ExceptionHandler
   end
 
 end
-
-class ActiveCampaignAPIError < StandardError
-  def initialize(error)
-    ActiveCampaign.api_logger.error "ERROR: #{msg}"
-    super(msg)
-  end
-end
-
-class NotFoundError < ActiveCampaignAPIError; end
 
