@@ -53,7 +53,7 @@ module ActiveCampaign
       opts.merge!( { payload: payload.to_json }) unless payload.empty?
       resp = RestClient::Request.execute(opts)
     rescue RestClient::ExceptionWithResponse => err
-      new ExceptionHandler(err)
+      ActiveCampaign::ExceptionHandler.new(err)
     else
       return JSON.parse(resp.body) if resp.body # Some calls respond w nothing
     end
