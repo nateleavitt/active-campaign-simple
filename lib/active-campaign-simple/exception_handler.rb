@@ -1,5 +1,5 @@
 module ActiveCampaign
-  class Exception
+  class ExceptionHandler
 
     ERRORS = {
       404 => NotFoundError
