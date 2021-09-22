@@ -1,7 +1,7 @@
 class ActiveCampaignAPIError < StandardError
   def initialize(error)
-    ActiveCampaign.api_logger.error "ERROR: #{msg}"
-    super(msg)
+    ActiveCampaign.api_logger.error "ERROR: #{error}"
+    super(error)
   end
 end
 
