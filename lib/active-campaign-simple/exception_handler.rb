@@ -8,7 +8,6 @@ module ActiveCampaign
     }
 
     def initialize(error)
-      puts "************* class: #{error.class} message: #{error.message}"
       error_class = ERRORS[error.message]
       if error_class
         raise error_class, error
