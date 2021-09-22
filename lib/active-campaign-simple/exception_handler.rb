@@ -4,12 +4,12 @@ module ActiveCampaign
   class ExceptionHandler
 
     ERRORS = {
-      404 => ActiveCampaign::NotFoundError
+      '404 Not Found' => ActiveCampaign::NotFoundError
     }
 
     def initialize(error)
-      puts "************* #{error.inspect}"
-      error_class = ERRORS[error.status]
+      puts "************* class: #{error.class} message: #{error.message}"
+      error_class = ERRORS[error.message]
       if error_class
         raise error_class, error
       else
