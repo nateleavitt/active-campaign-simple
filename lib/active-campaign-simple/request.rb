@@ -1,5 +1,5 @@
 require 'rest-client'
-require 'active-campaign-simple/api_error'
+require 'active-campaign-simple/exception'
 require 'active-campaign-simple/event'
 
 module ActiveCampaign
@@ -53,7 +53,7 @@ module ActiveCampaign
       opts.merge!( { payload: payload.to_json }) unless payload.empty?
       resp = RestClient::Request.execute(opts)
     rescue RestClient::ExceptionWithResponse => err
-      raise APIError, err
+      new Exception(err)
     else
       return JSON.parse(resp.body) if resp.body # Some calls respond w nothing
     end
