@@ -12,7 +12,7 @@ module ActiveCampaign
       if error_class
         raise error_class, error
       else
-        raise ActiveCampaignAPIError(error)
+        raise ActiveCampaign::StandardError(error)
       end
     end
 

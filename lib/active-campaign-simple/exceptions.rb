@@ -7,4 +7,5 @@ end
 
 module ActiveCampaign
   class NotFoundError < ActiveCampaignAPIError; end
+  class StandardError < ActiveCampaignAPIError; end
 end
