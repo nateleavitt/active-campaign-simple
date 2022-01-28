@@ -1,3 +1,5 @@
+require 'active-campaign-simple/exception_handler'
+
 module ActiveCampaign
   class Event
 
@@ -16,7 +18,7 @@ module ActiveCampaign
 
         resp = RestClient.post("https://trackcmp.net/event", form)
       rescue RestClient::ExceptionWithResponse => err
-        raise APIError, err
+        ActiveCampaign::ExceptionHandler.new(err)
       else
         return resp.body if resp.body # Some calls respond w nothing
       end

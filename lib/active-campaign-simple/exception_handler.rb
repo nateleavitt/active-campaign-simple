@@ -10,9 +10,9 @@ module ActiveCampaign
     def initialize(error)
       error_class = ERRORS[error.message]
       if error_class
-        raise error_class, error
+        raise error_class.new(error)
       else
-        raise ActiveCampaign::StandardError(error)
+        raise ActiveCampaign::APIError.new(error)
       end
     end
 
