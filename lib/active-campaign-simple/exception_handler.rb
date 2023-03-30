@@ -4,7 +4,8 @@ module ActiveCampaign
   class ExceptionHandler
 
     ERRORS = {
-      '404 Not Found' => ActiveCampaign::NotFoundError
+      '404 Not Found' => ActiveCampaign::NotFoundError,
+      '422 Unprocessable Entity' => ActiveCampaign::NotFoundError
     }
 
     def initialize(error)
