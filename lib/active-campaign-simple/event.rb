@@ -11,8 +11,8 @@ module ActiveCampaign
           key: key,
           actid: actid,
           event: event,
-          # visit: URI.encode_www_form_component{ email: email },
-          visit: { email: email }
+          visit: URI.encode_www_form_component({ email: email })
+          # visit: { email: email }
         }
         form.merge!({ eventdata: eventdata }) if eventdata
 
