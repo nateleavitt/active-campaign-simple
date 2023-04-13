@@ -10,9 +10,9 @@ module ActiveCampaign
     def initialize(error)
       error_class = ERRORS.find { |status, _| error.message.start_with?(status) }&.last
       if error_class
-        raise error_class.new(error), "#{error.message}\nResponse body:\n#{error.response&.body}\nStack trace:\n#{error.backtrace.join("\n")}"
+        raise error_class.new(error), "#{error.message}\nResponse body:\n#{error.response&.body}\n"
       else
-        raise ActiveCampaign::APIError.new(error), "#{error.message}\nResponse body:\n#{error.response&.body}\nStack trace:\n#{error.backtrace.join("\n")}"
+        raise ActiveCampaign::APIError.new(error), "#{error.message}\nResponse body:\n#{error.response&.body}\n"
       end
     end
   end
