@@ -6,16 +6,23 @@ module ActiveCampaign
     class << self
       # Post event
       def post_event(key, actid, event, email, eventdata=nil)
-        # header = { content_type: 'application/x-www-form-urlencoded' }
+        headers = {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Accept': 'application/json'
+        }
+
+        visit_data = { "email" => email }.to_json
+
         form = {
           key: key,
           actid: actid,
           event: event,
-          visit: URI.encode_www_form_component("{\"email\":\"#{email}\"}")
+          visit: visit_data
         }
-        form.merge!({ eventdata: eventdata }) if eventdata
 
-        resp = RestClient.post("https://trackcmp.net/event", form)
+        form[:eventdata] = eventdata if eventdata
+
+        resp = RestClient.post("https://trackcmp.net/event", form, headers)
       rescue RestClient::ExceptionWithResponse => err
         ActiveCampaign::ExceptionHandler.new(err)
       else
